@@ -13,8 +13,22 @@
          region: "{{region}}"
          dns_support: yes
          dns_hostnames: yes
-         trnancy: default
+         tenancy: default
          state: "{{state}}"
       register: vpc_out
+
+    - name: create a public subnet
+      ec2_vpc_subnet:
+         vpc_id: "{{vpc_out.vpc.id}}"
+         region: "{{region}}"
+         az: "{{zone}}"
+         state: "{{state}"
+         cidr: "{{pubsubnet}}"
+         map_public: yes
+         resources_tags:
+           Name: vprofilpubsub
+      register: pubsubout
+
+
 
     
