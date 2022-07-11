@@ -33,7 +33,7 @@
          vpc_id: "{{vpc_out.vpc.id}}"
          region: "{{region}}"
          az: "{{zone}}"
-         state: "{{state}"
+         state: "{{state}}"
          cidr: "{{pvtsubnet}}"
          tags:
            Name: vprofilepvtsub
