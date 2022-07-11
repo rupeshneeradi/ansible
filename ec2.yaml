@@ -22,7 +22,7 @@
          vpc_id: "{{vpc_out.vpc.id}}"
          region: "{{region}}"
          az: "{{zone}}"
-         state: "{{state}"
+         state: "{{state}}"
          cidr: "{{pubsubnet}}"
          map_public: yes
          tags:
