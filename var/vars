@@ -1,7 +1,7 @@
 vpc_name: "vprofile-vpc"
-vpccidr: "172.20.0.0/16" 
-pubsubnet: "172.20.1.0/24"
-pvtsubnet: "172.20.2.0/24"
+vpccidr: 172.20.0.0/16
+pubsubnet: 172.20.1.0/24
+pvtsubnet: 172.20.2.0/24
 state: "present"
 region: "us-east-2"
 zone: "us-east-2b"
