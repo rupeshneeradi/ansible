@@ -21,7 +21,7 @@
 
     - name: create a public subnet
       ec2_vpc_subnet:
-         vpc_id: "{{vprofilevpc.vpc.id}}"
+         vpc_id: "{{vpc_out.vpc.id}}"
          region: "{{region}}"
          az: "{{zone}}"
          state: "{{state}}"
@@ -32,7 +32,7 @@
       register: pubsubout
     - name: create a pvtsubnet
       ec2_vpc_subnet:
-         vpc_id: "{{vprofilevpc.vpc.id}}"
+         vpc_id: "{{vpc_out.vpc.id}}"
          region: "{{region}}"
          az: "{{zone}}"
          state: "{{state}}"
@@ -42,7 +42,7 @@
       register: pvtsubout
     - name: create a internetgateway
       ec2_vpc_igw:
-        vpc_id: "{{vprofilevpc.vpc.id}}"
+        vpc_id: "{{vpc_out.vpc.id}}"
         region: "{{region}}"
         state: "{{state}}"
         tags:
@@ -51,7 +51,7 @@
       register: igwout
     - name: create a pub route_table
       ec2_vpc_route_table:
-         vpc_id: "{{vprofilevpc.vpc.id}}"
+         vpc_id: "{{vpc_out.vpc.id}}"
          region: "{{region}}"
          tags:
            Name: publicRT
