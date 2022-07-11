@@ -15,19 +15,50 @@
          dns_hostnames: yes
          tenancy: default
          state: "{{state}}"
-         tags:
-            Name: vprofilevpc
       register: vpc_out
+
     - name: create a public_subnet
       ec2_vpc_subnet:
-        vpc_id: "{{vprofilevpc.vpc.id}}"
+        vpc_id: "{{vpc_out.vpc.id}}"
         region: "{{region}}"
         state: "{{state}}"
         az: "{{zone}}"
         cidr: "{{pubsubnet}}"
         map_public: yes
-        tags:
-         Name: public_subnet
       register: pubsubout
+
+
+    - name: create a pvtsubnet
+      ec2_vpc_subnet:
+         vpc_id: "{{vpc_out.vpc.id}}"
+         region: "{{region}}"
+         az: "{{zone}}"
+         state: "{{state}}"
+         cidr: "{{pvtsubnet}}"
+      register: pvtsubout
+
+    - name: create a internetgateway
+      ec2_vpc_igw:
+        vpc_id: "{{vpc_out.vpc.id}}"
+        region: "{{region}}"
+        state: "{{state}}"
+      register: igwout
+
+    - name: create a pub route_table
+      ec2_vpc_route_table:
+         vpc_id: "{{vpc_out.vpc.id}}"
+         region: "{{region}}"
+         subnets:
+            - "{{pubsubout.subnet.id}}"
+         routes:
+           - dest: 0.0.0.0/0
+             gateway_id: "{{igwout.gateway_id}}"
+      register: punRT_out
+
+
+
+
+
+
 
 
