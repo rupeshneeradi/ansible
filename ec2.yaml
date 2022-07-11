@@ -39,13 +39,14 @@
            Name: vprofilepvtsub
       register: pvtsubout
     - name: create a internetgateway
-       ec2_vpc_igw:
-         vpc_id: "{{vpc_out.vpc.id}}"
-         region: "{{region}}"
-         state: "{{state}}"
-         tags:
-            Name: vprofileigw
-       register: igwout
+      ec2_vpc_igw:
+        vpc_id: "{{vpc_out.vpc.id}}"
+        region: "{{region}}"
+        state: "{{state}}"
+        tags:
+           Name: vprofileigw
+           Name: vprofileigw
+      register: igwout
     - name: create a pub route_table
       ec2_vpc_route_table:
          vpc_id: "{{vpc_out.vpc.id}}"
