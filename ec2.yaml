@@ -18,7 +18,6 @@
          tags:
             Name: vprofilevpc
       register: vpc_out
-
     - name: create a public subnet
       ec2_vpc_subnet:
          vpc_id: "{{vpc_out.vpc.id}}"
