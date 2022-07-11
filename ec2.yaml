@@ -25,7 +25,7 @@
          region: "{{region}}"
          az: "{{az}}"
          state: "{{state}}"
-         cidr: "{{pubsubnet}}"
+         cidr_block: "{{pubsubnet}}"
          map_public: yes
          tags:
            Name: vprofilpubsub
