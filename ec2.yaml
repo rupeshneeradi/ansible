@@ -23,10 +23,10 @@
          region: "{{region}}"
          az: "{{zone}}"
          state: "{{state}}"
-         cidr: "{{pubsubnet}}"
+         cidr: "{{pubsubnet}}":q!
          map_public: yes
-      tags:
-        Name: public_subnet
+         tags:
+            Name: public_subnet
       register: pubsubout
 
 
