@@ -36,6 +36,8 @@
          az: "{{zone}}"
          state: "{{state}}"
          cidr: "{{pvtsubnet}}"
+         tags:
+           Name: pvt_subnet
       register: pvtsubout
 
     - name: create a internetgateway
@@ -43,6 +45,8 @@
         vpc_id: "{{vpc_out.vpc.id}}"
         region: "{{region}}"
         state: "{{state}}"
+        tags:
+          Name: vprofileigw
       register: igwout
 
     - name: create a pub route_table
@@ -54,6 +58,8 @@
          routes:
            - dest: 0.0.0.0/0
              gateway_id: "{{igwout.gateway_id}}"
+         tags:
+           Name: vprofilepubRT
       register: punRT_out
 
     - name: create a pvt routetable
@@ -63,8 +69,9 @@
         subnets:
            - "{{pvtsubout.subnet.id}}"
         tags:
-          Name: privateRT
+          Name: vprofileprivateRT
       register: pvtRT
+
     - debug:
          var: "{{item}}"
       loop:
