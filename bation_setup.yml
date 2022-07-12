@@ -6,21 +6,21 @@
      - /var/vars
      - /var/output_vars
   tasks:
-  - name: create a keypair
-    ec2_keypair:
-      name: vprofile-key
-      region: "{{region}}"
-    register: keyout
+   - name: create a keypair
+     ec2_keypair:
+       name: vprofile-key
+       region: "{{region}}"
+     register: keyout
 
-  - name: save the key paiy created
-    copy:
-      content: "{{keyout.key.private_key}}"
-      dest: "./bastion-key.pem"
-      mode: 0600
-    when: keyout.changed
+   - name: save the key paiy created
+     copy:
+       content: "{{keyout.key.private_key}}"
+       dest: "./bastion-key.pem"
+       mode: 0600
+     when: keyout.changed
 
-  - name: create a security group for host
-    ec2_gruop:
+   - name: create a security group for host
+     ec2_gruop:
        name: bastion-SG
        description: allow port 22 from anywere and all the ports with in the group
        region: "{{region}}"
@@ -31,26 +31,26 @@
             from_port: 22
             to_port: 22
             cidr_ip: 0.0.0.0/0
-    register: securitygroupout
+     register: securitygroupout
 
-  - name: create an instance
-    ec2:
-      key_name: vprofile-key
-      region: "{{region}}"
-      state: "{{state}}"
-      instance_type: t2.micro
-      image: "{{ami}}"
-      wait: yes
-      wait_timeout: 300
-      instance_tags:
-        Name: "Bastion_host"
-        project: vprofile
-      exact_count: 1
-      count_tag:
+   - name: create an instance
+     ec2:
+       key_name: vprofile-key
+       region: "{{region}}"
+       state: "{{state}}"
+       instance_type: t2.micro
+       image: "{{ami}}"
+       wait: yes
+       wait_timeout: 300
+       instance_tags:
          Name: "Bastion_host"
          project: vprofile
-      group_id: "{{securitygroupout.group.id}}"
-    register: bastionoutput
+       exact_count: 1
+       count_tag:
+          Name: "Bastion_host"
+          project: vprofile
+       group_id: "{{securitygroupout.group.id}}"
+     register: bastionoutput
 
 
 
