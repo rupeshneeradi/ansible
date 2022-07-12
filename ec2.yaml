@@ -34,7 +34,7 @@
          az: "{{zone}}"
          state: "{{state}}"
          cidr: "{{pvtsubnet}}"
-         tags:
+      tags:
            Name: pvtsubnet
       register: pvtsubout
 
