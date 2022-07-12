@@ -23,7 +23,7 @@
          region: "{{region}}"
          az: "{{zone}}"
          state: "{{state}}"
-         cidr: "{{pubsubnet}}":q!
+         cidr: "{{pubsubnet}}"
          map_public: yes
          tags:
             Name: public_subnet
