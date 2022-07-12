@@ -29,16 +29,18 @@
 
     - name: create a pvtsubnet
       ec2_vpc_subnet:
-         vpc_id: "{{vpc_out.vpc.id}}"
+         vpc_id: "{{vpcout.vpc.id}}"
          region: "{{region}}"
          az: "{{zone}}"
          state: "{{state}}"
          cidr: "{{pvtsubnet}}"
+         tags:
+          Name: pvtsubnet
       register: pvtsubout
 
     - name: create a internetgateway
       ec2_vpc_igw:
-        vpc_id: "{{vpc_out.vpc.id}}"
+        vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         state: "{{state}}"
         tags:
@@ -47,7 +49,7 @@
 
     - name: create a pub route_table
       ec2_vpc_route_table:
-         vpc_id: "{{vpc_out.vpc.id}}"
+         vpc_id: "{{vpcout.vpc.id}}"
          region: "{{region}}"
          subnets:
             - "{{pubsubout.subnet.id}}"
@@ -71,7 +73,7 @@
 
     - name: create a pvt routetable
       ec2_vpc_route_table:
-        vpc_id: "{{vpc_out.vpc.id}}"
+        vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         subnets:
            - "{{pvtsubout.subnet.id}}"
@@ -85,7 +87,7 @@
     - debug:
          var: "{{item}}"
       loop:
-           -  vpc_out.vpc.id
+           -  vpcout.vpc.id
            -  pvtsubout.subnet.id
            -  pubsubout.subnet.id
            -  igwout.gateway_id
