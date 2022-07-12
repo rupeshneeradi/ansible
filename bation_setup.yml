@@ -7,7 +7,7 @@
      - /var/output_vars
   tasks:
    - name: create a keypair
-     ec2_keypair:
+     ec2_key:
        name: vprofile-key
        region: "{{region}}"
      register: keyout
