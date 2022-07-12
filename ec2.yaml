@@ -62,12 +62,26 @@
            Name: vprofilepubRT
       register: punRT_out
 
+    - name: create a natgateway
+      ec2_vpc_nat_gateway:
+       state: "{{state}}"
+       region: "{{region}}"
+       subnet_id: "{{pubsubout.subnet.id}}"
+       wait: yes
+       if_exist_do_not_create: true
+       tags:
+         Name: vprofileNatIgw
+      register: natgatewatout
+
     - name: create a pvt routetable
       ec2_vpc_route_table:
         vpc_id: "{{vpc_out.vpc.id}}"
         region: "{{region}}"
         subnets:
            - "{{pvtsubout.subnet.id}}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{natgatewatout.nat_gateway_id}}"
         tags:
           Name: vprofileprivateRT
       register: pvtRT
@@ -79,3 +93,4 @@
            -  pvtsubout.subnet.id
            -  pubsubout.subnet.id
            -  igwout.gateway_id
+           -  natgatewatout.nat_gateway_id
