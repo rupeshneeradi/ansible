@@ -5,6 +5,3 @@ internetgatewayid: igw-04c23b84a1b728827
 natgatewayid: nat-07f12f89835214a48
 privateRoutetableid: rtb-07799625cc1776a13
 publicroutetableid: rtb-0518dc9b6054f4f2f
-# BEGIN ANSIBLE MANAGED BLOCK
-{'BastionsGid': 'sg-04f79b114c5794f19'}
-# END ANSIBLE MANAGED BLOCK
