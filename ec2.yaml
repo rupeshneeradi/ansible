@@ -26,7 +26,7 @@
          cidr: "{{pubsubnet}}"
          map_public: yes
          tags:
-            Name: public_subnet
+            Name: "public_subnet"
       register: pubsubout
 
 
