@@ -21,6 +21,4 @@
        mode: 0600
      when: keyout.changed
 
-   - name: create a ELB security Group
-
 
