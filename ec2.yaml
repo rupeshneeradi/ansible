@@ -60,7 +60,7 @@
              gateway_id: "{{igwout.gateway_id}}"
          tags:
            Name: vprofilepubRT
-      register: punRT_out
+      register: pubRTout
 
     - name: create a natgateway
       ec2_vpc_nat_gateway:
@@ -82,7 +82,7 @@
             gateway_id: "{{natgatewatout.nat_gateway_id}}"
         tags:
           Name: vprofileprivateRT
-      register: pvtRT
+      register: pvtRTout
 
     - debug:
          var: "{{item}}"
@@ -92,3 +92,5 @@
            -  pubsubout.subnet.id
            -  igwout.gateway_id
            -  natgatewatout.nat_gateway_id
+           -  pvtRTout.route_table.id
+           -  pubRTout.route_table.id
