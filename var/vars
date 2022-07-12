@@ -5,3 +5,4 @@ pvtsubnet: 172.20.2.0/24
 state: "present"
 region: "us-east-2"
 zone: "us-east-2b"
+ami: "ami-02d1e544b84bf7502"
