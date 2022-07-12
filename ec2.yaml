@@ -94,3 +94,18 @@
            -  natgatewatout.nat_gateway_id
            -  pvtRTout.route_table.id
            -  pubRTout.route_table.id
+
+    - set_fact:
+        vpcid: "{{vpcout.vpc.id}}"
+        privatesubnetid: "{{pvtsubout.subnet.id}}"
+        publicsubnetid: "{{pubsubout.subnet.id}}"
+        internetgatewayid: "{{igwout.gateway_id}}"
+        natgatewayid: "{{natgatewatout.nat_gateway_id}}"
+        privateRoutetableid: "{{pvtRTout.route_table.id}}"
+        publicroutetableid: "{{pubRTout.route_table.id}}"
+        cacheable: yes
+
+    - name: create a var file for output
+      copy:
+        content: "vpcid: {{vpcout.vpc.id}}"\n"privatesubnetid: {{pvtsubout.subnet.id}}"\n"publicsubnetid: {{pubsubout.subnet.id}}"\n"internetgatewayid: {{igwout.gateway_id}}"\n"natgatewayid: {{natgatewatout.nat_gateway_id}}"\n"privateRoutetableid: {{pvtRTout.route_table.id}}"\n"publicroutetableid: {{pubRTout.route_table.id}}"
+        dest: var/output_vars
