@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-  vars_file:
+  vars_files:
      - /var/vars
      - /var/output_vars
   tasks:
