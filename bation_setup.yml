@@ -20,7 +20,7 @@
      when: keyout.changed
 
    - name: create a security group for host
-     ec2_grup:
+     ec2_group:
        name: bastion-SG
        description: allow port 22 from anywere and all the ports with in the group
        region: "{{region}}"
