@@ -3,9 +3,9 @@
   connection: local
   gather_facts: False
   vars_files:
-    - var/output_vars
-    - prostacksetup
-    - vars
+    - vars/output_vars
+    - vars/prostacksetup
+    - vars/vars
   tasks:
 
    - name: create a keypair
