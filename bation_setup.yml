@@ -53,6 +53,13 @@
        vpc_subnet_id: "{{publicsubnetid}}"
      register: bastionoutput
 
+   - name: insert/update "bastionSGid" in vars/output_vars
+     blockinfile:
+        path: vars/output_vars
+        backup: yes
+           block:
+              BastionsGid: {{securitygroupout.group_id}}
+
 
 
 
