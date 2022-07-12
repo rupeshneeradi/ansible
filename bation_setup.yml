@@ -53,6 +53,7 @@
           Name: "Bastion_host"
           project: vprofile
        group_id: "{{securitygroupout.group.id}}"
+       vpc_subnet_id: "{{publicsubnetid}}"
      register: bastionoutput
 
 
