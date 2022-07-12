@@ -3,9 +3,7 @@
   connection: local
   gather_facts: false
   vars_files:
-    - var/vars
-    - var/output_vars
-
+    - vars/vars
   tasks:
    - name: create a keypair
      ec2_key:
