@@ -35,7 +35,7 @@
          state: "{{state}}"
          cidr: "{{pvtsubnet}}"
          tags:
-           Name: pvt_subnet
+           Name: pvtsubnet
       register: pvtsubout
 
     - name: create a internetgateway
