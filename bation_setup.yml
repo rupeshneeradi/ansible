@@ -2,13 +2,11 @@
 - hosts: localhost
   connection: local
   gather_facts: false
+  vars_files:
+    - var/vars
+    - var/output_vars
 
   tasks:
-   - name: callings vars
-     include_vars: var/vars
-
-   - name: callings vars fot bation
-     include_vars: var/output_vars
    - name: create a keypair
      ec2_key:
        name: vprofile-key
