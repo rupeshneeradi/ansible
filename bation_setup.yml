@@ -16,7 +16,7 @@
    - name: save the key paiy created
      copy:
        content: "{{keyout.key.private_key}}"
-       dest: "./bastion-key.pem"
+       dest: "./vpro-key.pem"
        mode: 0600
      when: keyout.changed
 

@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - var/output_vars
+    - prostacksetup
+    - vars
+  tasks:
+
+   - name: create a keypair
+     ec2_key:
+       name: vprofile-key
+       region: "{{region}}"
+     register: keyout
+
+   - name: save the key paiy created
+     copy:
+       content: "{{keyout.key.private_key}}"
+       dest: "./bastion-key.pem"
+       mode: 0600
+     when: keyout.changed
+
