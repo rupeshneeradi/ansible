@@ -107,5 +107,5 @@
 
     - name: create a var file for output
       copy:
-        content: "vpcid: {{vpcout.vpc.id}}"\n"privatesubnetid: {{pvtsubout.subnet.id}}"\n"publicsubnetid: {{pubsubout.subnet.id}}"\n"internetgatewayid: {{igwout.gateway_id}}"\n"natgatewayid: {{natgatewatout.nat_gateway_id}}"\n"privateRoutetableid: {{pvtRTout.route_table.id}}"\n"publicroutetableid: {{pubRTout.route_table.id}}"
+        content: "vpcid: {{vpcout.vpc.id}}\nprivatesubnetid: {{pvtsubout.subnet.id}}\npublicsubnetid: {{pubsubout.subnet.id}}\ninternetgatewayid: {{igwout.gateway_id}}\nnatgatewayid: {{natgatewatout.nat_gateway_id}}\nprivateRoutetableid: {{pvtRTout.route_table.id}}\npublicroutetableid: {{pubRTout.route_table.id}}"
         dest: var/output_vars
