@@ -67,7 +67,7 @@
       register: pvtRT
     - debug:
          var: "{{item}}"
-         loop:
+      loop:
            -  vpc_out.vpc.id
            -  pvtsubout.subnet.id
            -  pubsubout.subnet.id
