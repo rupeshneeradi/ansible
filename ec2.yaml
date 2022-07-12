@@ -65,6 +65,13 @@
         tags:
           Name: privateRT
       register: pvtRT
+    - debug:
+         var: "{{item}}"
+       loop:
+          -  vpc_out.vpc.id
+          -  pvtsubout.subnet.id
+          -  pubsubout.subnet.id
+          -  igwout.gateway_id
 
 
 
