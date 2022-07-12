@@ -1,0 +1,3 @@
+---
+- import_playbook: ec2.yaml
+- import_playbook: bation_setup.yml
