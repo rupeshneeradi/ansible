@@ -57,8 +57,8 @@
      blockinfile:
         path: vars/output_vars
         backup: yes
-           block:
-              BastionsGid: {{securitygroupout.group_id}}
+        block:
+           BastionsGid: {{securitygroupout.group_id}}
 
 
 

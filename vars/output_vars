@@ -5,4 +5,4 @@ internetgatewayid: igw-04c23b84a1b728827
 natgatewayid: nat-075b9a2c32740c3fe
 privateRoutetableid: rtb-07799625cc1776a13
 publicroutetableid: rtb-0518dc9b6054f4f2f
-BastionsGid: securitygroupout.group_id
+Bastionsid: securitygroupout.group_id
