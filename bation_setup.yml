@@ -50,7 +50,7 @@
        count_tag:
           Name: "Bastion_host"
           project: vprofile
-       group_id: "{{securitygroupout.group.id}}"
+       group_id: "{{securitygroupout.group_id}}"
        vpc_subnet_id: "{{publicsubnetid}}"
      register: bastionoutput
 
