@@ -15,18 +15,16 @@
          dns_hostnames: yes
          tenancy: default
          state: "{{state}}"
-      register: vpc_out
+      register: vpcout
 
     - name: create a pubsubnet
       ec2_vpc_subnet:
-         vpc_id: "{{vpc_out.vpc.id}}"
+         vpc_id: "{{vpcout.vpc.id}}"
          region: "{{region}}"
          az: "{{zone}}"
          state: "{{state}}"
          cidr: "{{pubsubnet}}"
          map_public: yes
-         tags:
-           Name: pub_subnet
       register: pubsubout
 
     - name: create a pvtsubnet
