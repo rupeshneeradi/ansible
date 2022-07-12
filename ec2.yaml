@@ -34,8 +34,6 @@
          az: "{{zone}}"
          state: "{{state}}"
          cidr: "{{pvtsubnet}}"
-         tags:
-          Name: pvtsubnet
       register: pvtsubout
 
     - name: create a internetgateway
