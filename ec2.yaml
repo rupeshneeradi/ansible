@@ -4,7 +4,7 @@
   gather_facts: False
   tasks:
     - name: Import vpc vars
-      include_vars: varsk/vars
+      include_vars: vars/vars
 
     - name: create a vpc
       ec2_vpc_net:
