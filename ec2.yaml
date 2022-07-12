@@ -56,6 +56,16 @@
              gateway_id: "{{igwout.gateway_id}}"
       register: punRT_out
 
+    - name: create a pvt routetable
+      ec2_vpc_route_table:
+        vpc_id: "{{vpc_out.vpc.id}}"
+        region: "{{region}}"
+        subnets:
+           - "{{pvtsubout.subnet.id}}"
+        tags:
+          Name: privateRT
+      register: pvtRT
+
 
 
 
