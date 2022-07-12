@@ -69,8 +69,6 @@
        subnet_id: "{{pubsubout.subnet.id}}"
        wait: yes
        if_exist_do_not_create: true
-       tags:
-         Name: vprofileNatIgw
       register: natgatewatout
 
     - name: create a pvt routetable
