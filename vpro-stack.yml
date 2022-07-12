@@ -17,7 +17,10 @@
    - name: save the key paiy created
      copy:
        content: "{{keyout.key.private_key}}"
-       dest: "./bastion-key.pem"
+       dest: "./vprofile-key.pem"
        mode: 0600
      when: keyout.changed
+
+   - name: create a ELB security Group
+
 
