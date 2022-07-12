@@ -25,6 +25,8 @@
          state: "{{state}}"
          cidr: "{{pubsubnet}}"
          map_public: yes
+         tags:
+           Name: pub_subnet
       register: pubsubout
 
     - name: create a pvtsubnet
@@ -34,6 +36,8 @@
          az: "{{zone}}"
          state: "{{state}}"
          cidr: "{{pvtsubnet}}"
+         tags:
+          Name: pvtsubnet
       register: pvtsubout
 
     - name: create a internetgateway
