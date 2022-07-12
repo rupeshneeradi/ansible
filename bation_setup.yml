@@ -58,7 +58,7 @@
         path: vars/output_vars
         backup: yes
         block:
-           BastionsGid: {{securitygroupout.group_id}}
+           BastionsGid: "{{securitygroupout.group_id}}"
 
 
 
