@@ -1,7 +1,0 @@
-vpcid: vpc-05b28e9d7751f956d
-privatesubnetid: subnet-0a90e5912cdc19d2d
-publicsubnetid: subnet-0e1b4a09220663a87
-internetgatewayid: igw-04c23b84a1b728827
-natgatewayid: nat-07f12f89835214a48
-privateRoutetableid: rtb-07799625cc1776a13
-publicroutetableid: rtb-0518dc9b6054f4f2f
