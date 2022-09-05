@@ -108,4 +108,4 @@
     - name: create a var file for output
       copy:
         content: "vpcid: {{vpcout.vpc.id}}\nprivatesubnetid: {{pvtsubout.subnet.id}}\npublicsubnetid: {{pubsubout.subnet.id}}\ninternetgatewayid: {{igwout.gateway_id}}\nnatgatewayid: {{natgatewatout.nat_gateway_id}}\nprivateRoutetableid: {{pvtRTout.route_table.id}}\npublicroutetableid: {{pubRTout.route_table.id}}"
-        dest: var/output_vars
+        dest: TEST line for PR request dont accept the PR request
